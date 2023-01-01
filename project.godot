@@ -8,11 +8,25 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Spatial",
+"class": "Body_",
+"language": "GDScript",
+"path": "res://Body.gd"
+} ]
+_global_script_class_icons={
+"Body_": ""
+}
+
 [application]
 
 config/name="space"
 run/main_scene="res://World.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+GlobalTime="*res://Time.gd"
 
 [gui]
 
