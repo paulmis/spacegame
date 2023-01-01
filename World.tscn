@@ -22,23 +22,23 @@ transform = Transform( 0.971714, 0, -0.23616, 0, 1, 0, 0.23616, 0, 0.971714, -0.
 mesh = SubResource( 1 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( -0.363885, 0, 0.931444, 0, 1, 0, -0.931444, 0, -0.363885, 2.058, 1.31811, -0.906246 )
-light_energy = 4.67
-
-[node name="CameraHolder" type="Spatial" parent="."]
-transform = Transform( 0.91197, 0, -0.410257, 0, 1, 0, 0.410257, 0, 0.91197, 0, 4.4702, 11.5537 )
-
-[node name="Camera" type="Camera" parent="CameraHolder"]
-transform = Transform( 0.77955, -0.245135, 0.576378, -0.101454, 0.858659, 0.502406, -0.618069, -0.450126, 0.644498, 4.15264, 11.7415, 9.23101 )
+transform = Transform( -0.363885, 0, 0.931444, 0, 1, 0, -0.931444, 0, -0.363885, -28.2057, 35.5607, 61.1012 )
+light_energy = 8.22
+light_indirect_energy = 1.881
+light_specular = 3.223
 
 [node name="PauseCheckBox" type="CheckBox" parent="."]
 margin_right = 24.0
 margin_bottom = 24.0
 
 [node name="TimeLabel" type="RichTextLabel" parent="."]
-modulate = Color( 0, 0, 0, 1 )
+modulate = Color( 0.94902, 0.917647, 0.917647, 1 )
 margin_left = 6.0
 margin_top = 29.0
 margin_right = 111.0
 margin_bottom = 69.0
 text = "Time: 0"
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( -4.37114e-08, 1, 0, 4.37114e-08, 1.91069e-15, 1, 1, 4.37114e-08, -4.37114e-08, 0, 103.507, 0 )
+far = 8192.0
