@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://default_env.tres" type="Environment" id=1]
 [ext_resource path="res://World.gd" type="Script" id=2]
 [ext_resource path="res://assets/images/ui/galaxy.svg" type="Texture" id=3]
 [ext_resource path="res://assets/images/ui/planet.svg" type="Texture" id=4]
 [ext_resource path="res://assets/images/ui/system.svg" type="Texture" id=5]
+[ext_resource path="res://BodyUI.tscn" type="PackedScene" id=6]
+[ext_resource path="res://PlayerCamera.gd" type="Script" id=7]
 
 [node name="World" type="Spatial"]
 script = ExtResource( 2 )
@@ -33,8 +35,9 @@ margin_bottom = 96.0
 text = "Time: 0"
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1.31134e-07, 1, -4.37114e-08, 3.82137e-15, 4.37114e-08, 1, 1, -1.31134e-07, 1.91069e-15, 0, 80, 0 )
+transform = Transform( 1.31134e-07, 1, -4.37114e-08, 3.82137e-15, 4.37114e-08, 1, 1, -1.31134e-07, 1.91069e-15, 0, 70, 0 )
 far = 8192.0
+script = ExtResource( 7 )
 
 [node name="DetailCheckBox" type="CheckBox" parent="."]
 margin_left = 51.0
@@ -84,31 +87,10 @@ margin_bottom = 32.0
 texture = ExtResource( 4 )
 expand = true
 
-[node name="BodyDialog" type="Control" parent="."]
-margin_left = 9.0
-margin_top = 83.0
-margin_right = 216.0
-margin_bottom = 141.0
-
-[node name="Name" type="RichTextLabel" parent="BodyDialog"]
-margin_left = 6.0
-margin_top = 6.0
-margin_right = 207.0
-margin_bottom = 23.0
-text = "Name"
-
-[node name="PrimaryName" type="RichTextLabel" parent="BodyDialog"]
-margin_left = 6.0
-margin_top = 23.0
-margin_right = 208.0
-margin_bottom = 43.0
-text = "PrimaryName"
-
-[node name="Period" type="RichTextLabel" parent="BodyDialog"]
-margin_left = 6.0
-margin_top = 40.0
-margin_right = 179.0
-margin_bottom = 58.0
-text = "Period"
+[node name="BodyUI" parent="." instance=ExtResource( 6 )]
+margin_left = 17.0
+margin_top = 84.0
+margin_right = -1448.0
+margin_bottom = -728.0
 
 [connection signal="gui_input" from="Container/Galaxy" to="." method="_on_Galaxy_gui_input"]

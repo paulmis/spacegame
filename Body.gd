@@ -7,11 +7,11 @@ var period: float
 var radius: float
 var distance: float
 var orbit_center: Vector3
-var primary: Body_
+var primary
 var satelites: Array = []
 onready var sphere = $Sphere
 onready var collision = $CollisionShape
-onready var dialog = get_node("/root/World/BodyDialog")
+onready var ui = get_node("/root/World/BodyUI")
 onready var orbit = $Orbit
 onready var detail = get_node("/root/World/DetailCheckBox")
 
@@ -62,15 +62,14 @@ func _process(_delta):
 
 
 func _on_RigidBody_mouse_entered():
-	dialog.get_node("Name").text = "Name: " + name
-	if primary:	
-		dialog.get_node("PrimaryName").text = "Primary: " + primary.name
-	else:
-		dialog.get_node("PrimaryName").text = ""
-	dialog.get_node("Period").text = str(period)
-		
-	dialog.show()
-
+	ui.show_body(self)
 
 func _on_RigidBody_mouse_exited():
-	dialog.hide()
+	ui.hide_body()
+	
+func _on_RigidBody_input_event(camera, event, position, normal, shape_idx):
+	if event is InputEventMouseButton and event.pressed:
+		match event.button_index:
+			BUTTON_LEFT:
+				print("xd")
+				ui.lock = !ui.lock

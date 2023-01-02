@@ -18,17 +18,12 @@ func _ready():
 		bodies.append(body)
 	
 	bodies[0].add_satelite(bodies[1])
-	bodies[0].add_satelite(bodies[2])
 	bodies[2].add_satelite(bodies[3])
 	bodies[0].add_satelite(bodies[4])
 	
 	for body in bodies:
 		add_child(body)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	PlayerCamera.target = bodies[0]
+	
 
-
-func _on_System_gui_input(event):
-	pass # Replace with function body.

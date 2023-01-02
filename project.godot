@@ -27,6 +27,7 @@ config/icon="res://icon.png"
 [autoload]
 
 GlobalTime="*res://Time.gd"
+PlayerCamera="*res://PlayerCamera.gd"
 
 [display]
 

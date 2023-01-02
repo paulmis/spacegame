@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://BodyUI.gd" type="Script" id=1]
+
+[node name="BodyUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="Name" type="RichTextLabel" parent="."]
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 207.0
+margin_bottom = 23.0
+text = "Name"
+
+[node name="PrimaryName" type="RichTextLabel" parent="."]
+margin_left = 6.0
+margin_top = 23.0
+margin_right = 208.0
+margin_bottom = 43.0
+text = "PrimaryName"
+
+[node name="Period" type="RichTextLabel" parent="."]
+margin_left = 6.0
+margin_top = 40.0
+margin_right = 179.0
+margin_bottom = 58.0
+text = "Period"
+
+[node name="FollowButton" type="Button" parent="."]
+margin_left = 14.0
+margin_top = 61.0
+margin_right = 67.0
+margin_bottom = 82.0
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Label" type="Label" parent="FollowButton"]
+margin_left = 6.0
+margin_top = 4.0
+margin_right = 47.0
+margin_bottom = 18.0
+text = "Follow"
+
+[connection signal="pressed" from="FollowButton" to="." method="_on_FollowButton_pressed"]
