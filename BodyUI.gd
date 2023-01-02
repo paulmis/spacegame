@@ -4,6 +4,7 @@ var lock: bool = false
 var current
 
 func show_body(body: Body_):
+	print("new current: ", body)
 	current = body
 	$Name.text = "Name: " + body.name
 	$PrimaryName.text = "Primary: " + body.primary.name if body.primary else ""
@@ -22,8 +23,9 @@ func _on_FollowButton_pressed():
 		target.translation.z
 	)
 	
+	print("From ", PlayerCamera.camera.translation, " to ", target_translation)
 	var tween = get_tree().create_tween()
 	tween.tween_property(PlayerCamera, "freeze", true, .0)
-	tween.tween_property(PlayerCamera, "translation", target_translation, 0.2).set_trans(Tween.TRANS_CIRC)
+	tween.tween_property(PlayerCamera.camera, "translation", target_translation, 0.2).set_trans(Tween.TRANS_CIRC)
 	tween.tween_property(PlayerCamera, "target", target, .0)
 	tween.tween_property(PlayerCamera, "freeze", false, .0)

@@ -62,14 +62,15 @@ func _process(_delta):
 
 
 func _on_RigidBody_mouse_entered():
+	print(ui)
+	print(self)
 	ui.show_body(self)
 
 func _on_RigidBody_mouse_exited():
 	ui.hide_body()
 	
-func _on_RigidBody_input_event(camera, event, position, normal, shape_idx):
+func _on_RigidBody_input_event(_camera, event, _position, _normal, _shape_idx):
 	if event is InputEventMouseButton and event.pressed:
 		match event.button_index:
 			BUTTON_LEFT:
-				print("xd")
 				ui.lock = !ui.lock

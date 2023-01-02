@@ -1,10 +1,14 @@
-extends Camera
+extends Node
 
 var target
-var freeze: bool = false
+var freeze: bool = true
+onready var camera: Camera = get_node("/root/World/PlayerCamera")
 
-func _process(delta):
+func _process(_delta):
 	if target and !freeze:
-		translation = target.translation
-		rotation_degrees = Vector3(-90, -90, 0)
-		transform.origin.y = target.radius * 30
+		camera.translation = Vector3(
+			target.translation.x,
+			camera.translation.y,
+			target.translation.z
+		)
+		camera.rotation_degrees = Vector3(-90, -90, 0)

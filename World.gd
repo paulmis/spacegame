@@ -18,12 +18,27 @@ func _ready():
 		bodies.append(body)
 	
 	bodies[0].add_satelite(bodies[1])
+	bodies[0].add_satelite(bodies[2])
 	bodies[2].add_satelite(bodies[3])
 	bodies[0].add_satelite(bodies[4])
 	
 	for body in bodies:
 		add_child(body)
-
+		
 	PlayerCamera.target = bodies[0]
-	
 
+func _process(_delta):
+	if Input.is_action_just_pressed("toggle_pause"):
+		GlobalTime.paused = !GlobalTime.paused
+	if Input.is_action_just_released("scroll_down"):
+		PlayerCamera.camera.translation = Vector3(
+			PlayerCamera.camera.translation.x,
+			PlayerCamera.camera.translation.y * 1.1,
+			PlayerCamera.camera.translation.z
+		)
+	if Input.is_action_just_released("scroll_up"):
+		PlayerCamera.camera.translation = Vector3(
+			PlayerCamera.camera.translation.x,
+			PlayerCamera.camera.translation.y * 0.9,
+			PlayerCamera.camera.translation.z
+		)
