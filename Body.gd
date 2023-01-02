@@ -16,13 +16,12 @@ onready var orbit = $Orbit
 onready var detail = get_node("/root/World/DetailCheckBox")
 
 func init(name: String, mass: int, radius: float, period: float, 
-		  distance: float, orbit_center: Vector3):
+		  distance: float):
 	self.name = name
 	self.mass = mass
 	self.radius = radius
 	self.period = period
 	self.distance = distance
-	self.orbit_center = orbit_center
 	
 func _ready():
 	var mesh = SphereMesh.new()
@@ -37,17 +36,25 @@ func _ready():
 	orbit.inner_radius = distance
 	orbit.outer_radius = distance + 0.1
 	calculate_position()
-	
+
+func set_primary(primary: Body_):
+	self.primary = primary
+
 func add_satelite(satelite: Body_):
-	satelite.primary = self
+	satelite.set_primary(self)
 	self.satelites.append(satelite)
+	
+func get_orbit_center():
+	if primary:
+		return primary.transform.origin
+	return Vector3()
 
 func calculate_position():
-	self.transform.origin = self.orbit_center +\
+	self.transform.origin = get_orbit_center() +\
 		Vector3(sin(GlobalTime.time * 2 * 3.14 / self.period) * self.distance,
 				0,
 				cos(GlobalTime.time * 2 * 3.14 / self.period) * self.distance)
-	orbit.transform.origin = -self.transform.origin
+	orbit.transform.origin = get_orbit_center() - self.transform.origin
 
 func _process(_delta):
 	self.calculate_position()

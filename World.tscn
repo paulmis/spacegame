@@ -33,7 +33,7 @@ margin_bottom = 96.0
 text = "Time: 0"
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1.75477e-08, 0.477297, 0.878742, 5.92743e-08, -0.878742, 0.477297, 1, 4.37114e-08, -4.37114e-08, 92.6336, 68.5533, 0 )
+transform = Transform( 1.31134e-07, 1, -4.37114e-08, 3.82137e-15, 4.37114e-08, 1, 1, -1.31134e-07, 1.91069e-15, 0, 80, 0 )
 far = 8192.0
 
 [node name="DetailCheckBox" type="CheckBox" parent="."]
@@ -62,7 +62,7 @@ margin_top = 16.0
 margin_right = 1595.0
 margin_bottom = 105.0
 
-[node name="TextureRect" type="TextureRect" parent="Container"]
+[node name="System" type="TextureRect" parent="Container"]
 margin_left = 110.0
 margin_top = 3.0
 margin_right = 140.0
@@ -70,7 +70,7 @@ margin_bottom = 35.0
 texture = ExtResource( 5 )
 expand = true
 
-[node name="TextureRect2" type="TextureRect" parent="Container"]
+[node name="Galaxy" type="TextureRect" parent="Container"]
 margin_left = 55.0
 margin_top = 3.0
 margin_right = 85.0
@@ -78,7 +78,7 @@ margin_bottom = 35.0
 texture = ExtResource( 3 )
 expand = true
 
-[node name="TextureRect3" type="TextureRect" parent="Container"]
+[node name="Planet" type="TextureRect" parent="Container"]
 margin_right = 35.0
 margin_bottom = 32.0
 texture = ExtResource( 4 )
@@ -110,3 +110,5 @@ margin_top = 40.0
 margin_right = 179.0
 margin_bottom = 58.0
 text = "Period"
+
+[connection signal="gui_input" from="Container/Galaxy" to="." method="_on_Galaxy_gui_input"]
