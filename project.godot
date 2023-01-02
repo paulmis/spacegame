@@ -44,8 +44,9 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
-quality/filters/sharpen_intensity=0.127
-quality/filters/anisotropic_filter_level=8
+quality/filters/sharpen_intensity=0.013
+quality/filters/anisotropic_filter_level=16
+quality/subsurface_scattering/quality=2
 quality/filters/msaa=4
 quality/filters/use_fxaa=true
 quality/filters/use_debanding=true
