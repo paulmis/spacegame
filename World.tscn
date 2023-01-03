@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://default_env.tres" type="Environment" id=1]
 [ext_resource path="res://World.gd" type="Script" id=2]
+[ext_resource path="res://Ship.tscn" type="PackedScene" id=3]
 [ext_resource path="res://BodyUI.tscn" type="PackedScene" id=6]
 
 [node name="World" type="Spatial"]
@@ -50,4 +51,5 @@ margin_top = 84.0
 margin_right = -1448.0
 margin_bottom = -728.0
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
+[node name="Spatial" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 127.241 )
