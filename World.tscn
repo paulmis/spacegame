@@ -51,5 +51,4 @@ margin_top = 84.0
 margin_right = -1448.0
 margin_bottom = -728.0
 
-[node name="Spatial" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 127.241 )
+[node name="Ship" parent="." instance=ExtResource( 3 )]
